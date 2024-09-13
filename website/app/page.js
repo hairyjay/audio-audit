@@ -44,8 +44,8 @@ function Search() {
               class="input is-rounded"
               type="search"
               placeholder="Search"
-              value={search}
-              onSubmit={(e) => {
+              defaultValue={searchParams.get('q')?.toString()}
+              onChange={(e) => {
                 handleSearch(e.target.value);
               }}
             />
