@@ -64,13 +64,11 @@ function Search() {
               placeholder="Search"
               defaultValue={searchParams.get('q')?.toString()}
               value={searchValue}
-              onChange={(e) => {setValue(e.target.value); setError(e => false); errorText = ' '}}
-              onKeyDown={(e) => {
-                onKeyDown(e);
-              }}
+              onChange={(e) => {setValue(e.target.value); setError(e => false);}}
+              onKeyDown={(e) => {onKeyDown(e);}}
             />
             <p class="buttons">
-              <button class="button is-rounded is-link" onClick={(e) => {handleSearch(value)}}>
+              <button class="button is-rounded is-link" onClick={(e) => {handleSearch(searchValue)}}>
                 Search
               </button>
             </p>
