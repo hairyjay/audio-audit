@@ -2,6 +2,9 @@
 import { useSearchParams } from 'next/navigation'
 
 export default function Home() {
+  const searchParams = useSearchParams()
+  const search = searchParams.get('search')
+
   return (
     <main>
       <section class="section has-text-centered">
@@ -9,11 +12,10 @@ export default function Home() {
         <h2 class="subtitle">
           Search for keywords for works that may appear in audio ML training datasets. Examples include a work's title or the name of the creator, a performer, or the rights owner.
         </h2>
+
         <div class="container is-max-desktop">
           <div class="field is-grouped">
-            <p class="control">
-              <input class="input is-rounded" type="text" placeholder="Search" />
-            </p>
+            <input class="input is-rounded" type="text" placeholder="Search" />
             <p class="buttons">
               <button class="button is-rounded">
                 <span class="icon is-link">
@@ -22,6 +24,10 @@ export default function Home() {
               </button>
             </p>
           </div>
+        </div>
+
+        <div class="container is-max-desktop">
+          <p>Search: {search}</p>
         </div>
       </section>
     </main>
