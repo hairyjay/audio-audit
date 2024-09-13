@@ -14,7 +14,7 @@ export default function Home() {
             <p class="control">
               <input class="input is-rounded" type="text" placeholder="Search" />
             </p>
-            <p class="control">
+            <p class="buttons">
               <button class="button is-rounded">
                 <span class="icon is-link">
                   <i class="fas fa-magnifying-glass"></i>
