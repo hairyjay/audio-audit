@@ -13,6 +13,8 @@ export default function Home() {
           <div class="field is-grouped">
             <p class="control">
               <input class="input is-rounded" type="text" placeholder="Search" />
+            </p>
+            <p class="control">
               <button class="button is-rounded">
                 <span class="icon is-link">
                   <i class="fas fa-search"></i>
