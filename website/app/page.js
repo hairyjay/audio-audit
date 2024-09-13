@@ -19,8 +19,10 @@ function Search() {
   const { replace } = useRouter();
   const[searchValue, setValue] = useState("");
   const[searchError, setError] = useState(false);
-  if (search.length < 5) {
-    setError(e => true);
+  if (search) {
+    if (search.length < 5 && search.length >= 1) {
+      setError(e => true);
+    }
   }
 
   const onKeyDown = (e) => {
