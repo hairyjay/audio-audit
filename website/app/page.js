@@ -1,6 +1,6 @@
 export default function Home() {
   return (
-    <main className={styles.main}>
+    <main>
       <section class="section has-text-centered">
         <h1 class="title">Audio Dataset Audit</h1>
         <h2 class="subtitle">
