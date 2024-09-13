@@ -45,7 +45,7 @@ function Search() {
               type="search"
               placeholder="Search"
               defaultValue={searchParams.get('q')?.toString()}
-              onSubmit={(e) => {
+              onsubmit={(e) => {
                 handleSearch(e.target.value);
               }}
             />
