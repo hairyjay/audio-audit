@@ -17,7 +17,7 @@ export default function Home() {
             <p class="control">
               <button class="button is-rounded">
                 <span class="icon is-link">
-                  <i class="fas fa-search"></i>
+                  <i class="fas fa-magnifying-glass"></i>
                 </span>
               </button>
             </p>
