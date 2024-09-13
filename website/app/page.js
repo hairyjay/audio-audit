@@ -40,7 +40,7 @@ function Search() {
 
         <div class="container is-max-desktop">
           <div class="field is-grouped">
-            <form>
+            <form onsubmit="return false">
               <input
                 class="input is-rounded"
                 type="search"
