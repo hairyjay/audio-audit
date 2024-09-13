@@ -17,9 +17,8 @@ function Search() {
   const search = searchParams.get('q')
   const pathname = usePathname();
   const { replace } = useRouter();
-  const[searchValue, setValue] = useState(search.toString());
+  const[searchValue, setValue] = useState("");
   const[searchError, setError] = useState(false);
-  var errorText = ' '
   if (search.length < 5) {
     setError(e => true);
   }
@@ -68,7 +67,6 @@ function Search() {
                 onKeyDown(e);
               }}
             />
-            
             <p class="buttons">
               <button class="button is-rounded is-link" onClick={(e) => {handleSearch(value)}}>
                 Search
