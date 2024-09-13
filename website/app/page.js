@@ -1,5 +1,5 @@
 'use client'
-import { useSearchParams } from 'next/navigation'
+import { useSearchParams, usePathname, useRouter } from 'next/navigation'
 import { Suspense } from 'react'
 
 export default function Home() {
@@ -15,6 +15,18 @@ export default function Home() {
 function Search() {
   const searchParams = useSearchParams()
   const search = searchParams.get('q')
+  const pathname = usePathname();
+  const { replace } = useRouter();
+ 
+  function handleSearch(term) {
+    const params = new URLSearchParams(searchParams);
+    if (term) {
+      params.set('q', term);
+    } else {
+      params.delete('q');
+    }
+    replace(`${pathname}?${params.toString()}`);
+  }
 
   return (
     <div>
@@ -28,7 +40,16 @@ function Search() {
 
         <div class="container is-max-desktop">
           <div class="field is-grouped">
-            <input class="input is-rounded" type="search" placeholder="Search" value={search} />
+            <input
+              class="input is-rounded"
+              type="search"
+              placeholder="Search"
+              value={search}
+              defaultValue={searchParams.get('query')?.toString()}
+              onChange={(e) => {
+                handleSearch(e.target.value);
+              }}
+            />
             <p class="buttons">
               <button class="button is-rounded is-link">
                 Search
@@ -38,11 +59,9 @@ function Search() {
         </div>
       </section>
 
-      <section class="section has-text-centered">
-        <div class="container is-max-desktop">
-          <p>Search: {search}</p>
-        </div>
-      </section>
+      <div class="container is-max-desktop">
+        <p>Search: {search}</p>
+      </div>
     </div>
   );
 }
