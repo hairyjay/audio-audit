@@ -9,7 +9,7 @@ export default function Home() {
         <div class="container is-max-desktop">
           <h1 class="title">Audio Dataset Search</h1>
           <h2 class="subtitle">
-            Search for keywords for works that may appear in audio ML training datasets. Examples include a work's title or the name of the creator, a performer, or the rights owner.
+            Search for keywords for works that may appear in audio ML training datasets.<br></br>Examples include a work's title or the name of the creator, a performer, or the rights owner.
           </h2>
         </div>
 
@@ -29,16 +29,15 @@ function Search() {
     <div>
       <div class="container is-max-desktop">
         <div class="field is-grouped">
-          <input class="input is-rounded" type="text" placeholder="Search" value={search} />
+          <input class="input is-rounded" type="search" placeholder="Search" value={search} />
           <p class="buttons">
-            <button class="button is-rounded">
-              <span class="icon is-link">
-                <i class="fas fa-magnifying-glass"></i>
-              </span>
+            <button class="button is-rounded is-link">
+              Search
             </button>
           </p>
         </div>
       </div>
+
       <div class="container is-max-desktop">
         <p>Search: {search}</p>
       </div>
