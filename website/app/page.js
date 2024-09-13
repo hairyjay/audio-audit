@@ -17,6 +17,7 @@ function Search() {
   const search = searchParams.get('q')
   const pathname = usePathname();
   const { replace } = useRouter();
+  const[searchValue, setValue] = useState("");
 
   const onKeyDown = (e) => {
     if(e.key == 'Enter'){
@@ -46,20 +47,20 @@ function Search() {
 
         <div class="container is-max-desktop">
           <div class="field is-grouped">
-            <form onsubmit="return false">
-              <input
-                class="input is-rounded"
-                label={'search'}
-                type="search"
-                placeholder="Search"
-                defaultValue={searchParams.get('q')?.toString()}
-                onKeyDown={(e) => {
-                  onKeyDown(e);
-                }}
-              />
-            </form>
+            <input
+              class="input is-rounded"
+              label={'search'}
+              type="search"
+              placeholder="Search"
+              defaultValue={searchParams.get('q')?.toString()}
+              value={searchValue}
+              onChange={(e) => {setValue(e.target.value)}}
+              onKeyDown={(e) => {
+                onKeyDown(e);
+              }}
+            />
             <p class="buttons">
-              <button class="button is-rounded is-link">
+              <button class="button is-rounded is-link" onClick={(e) => {handleSearch(value)}}>
                 Search
               </button>
             </p>
