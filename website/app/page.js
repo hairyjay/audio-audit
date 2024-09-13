@@ -40,20 +40,22 @@ function Search() {
 
         <div class="container is-max-desktop">
           <div class="field is-grouped">
-            <input
-              class="input is-rounded"
-              type="search"
-              placeholder="Search"
-              defaultValue={searchParams.get('q')?.toString()}
-              onsubmit={(e) => {
-                handleSearch(e.target.value);
-              }}
-            />
-            <p class="buttons">
-              <button type="submit" class="button is-rounded is-link">
-                Search
-              </button>
-            </p>
+            <form>
+              <input
+                class="input is-rounded"
+                type="search"
+                placeholder="Search"
+                defaultValue={searchParams.get('q')?.toString()}
+                onsubmit={(e) => {
+                  handleSearch(e.target.value);
+                }}
+              />
+              <p class="buttons">
+                <button type="submit" class="button is-rounded is-link">
+                  Search
+                </button>
+              </p>
+            </form>
           </div>
         </div>
       </section>
