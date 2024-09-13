@@ -77,7 +77,6 @@ function Search() {
       </section>
 
       <div class="container is-max-desktop">
-        <p>Search: {search}</p>
       </div>
     </div>
   );
