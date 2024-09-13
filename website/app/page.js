@@ -34,7 +34,7 @@ function Search() {
         <div class="container is-max-desktop">
           <h1 class="title">Audio Dataset Search</h1>
           <h2 class="subtitle">
-            Search for keywords for works that may appear in audio ML training datasets.<br></br>Examples include a work's title or the name of the creator, a performer, or the rights owner.
+            Search keywords for works that may appear in audio ML training datasets.<br></br>Examples include a work's title or the name of the creator, a performer, or the rights owner.
           </h2>
         </div>
 
@@ -45,14 +45,14 @@ function Search() {
               type="search"
               placeholder="Search"
               defaultValue={searchParams.get('q')?.toString()}
-              onChange={(e) => {
+              onsubmit={(e) => {
                 handleSearch(e.target.value);
               }}
             />
             <p class="buttons">
-              <button class="button is-rounded is-link">
+              <input type="submit" class="button is-rounded is-link">
                 Search
-              </button>
+              </input>
             </p>
           </div>
         </div>
