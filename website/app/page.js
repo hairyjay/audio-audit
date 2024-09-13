@@ -50,9 +50,9 @@ function Search() {
               }}
             />
             <p class="buttons">
-              <input type="submit" class="button is-rounded is-link">
+              <button type="submit" class="button is-rounded is-link">
                 Search
-              </input>
+              </button>
             </p>
           </div>
         </div>
