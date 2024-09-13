@@ -18,6 +18,8 @@ function Search() {
   const pathname = usePathname();
   const { replace } = useRouter();
   const[searchValue, setValue] = useState("");
+  const[searchError, setError] = useState("");
+  const errorText = ""
 
   const onKeyDown = (e) => {
     if(e.key == 'Enter'){
@@ -28,7 +30,11 @@ function Search() {
   function handleSearch(term) {
     const params = new URLSearchParams(searchParams);
     if (term) {
-      params.set('q', term);
+      if (term.length >= 3) {
+        params.set('q', term);
+      } else {
+        setError(e => True)
+      }
     } else {
       params.delete('q');
     }
@@ -48,17 +54,18 @@ function Search() {
         <div class="container is-max-desktop">
           <div class="field is-grouped">
             <input
-              class="input is-rounded"
+              class={searchError ? "input is-rounded is-danger" : "input is-rounded"}
               label={'search'}
               type="search"
               placeholder="Search"
               defaultValue={searchParams.get('q')?.toString()}
               value={searchValue}
-              onChange={(e) => {setValue(e.target.value)}}
+              onChange={(e) => {setValue(e.target.value); setError(e => False)}}
               onKeyDown={(e) => {
                 onKeyDown(e);
               }}
             />
+            {error}
             <p class="buttons">
               <button class="button is-rounded is-link" onClick={(e) => {handleSearch(value)}}>
                 Search
