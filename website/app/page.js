@@ -32,7 +32,7 @@ export default function Home() {
   );
 }
 
-export default function Results() {
+function Results() {
   const searchParams = useSearchParams()
   const search = searchParams.get('search')
 
