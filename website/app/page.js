@@ -13,7 +13,9 @@ export default function Home() {
 
         <div class="container is-max-desktop">
           <div class="field is-grouped">
-            <input class="input is-rounded" type="text" placeholder="Search" />
+            <Suspense>
+              <Searchbar />
+            </Suspense>
             <p class="buttons">
               <button class="button is-rounded">
                 <span class="icon is-link">
@@ -32,9 +34,18 @@ export default function Home() {
   );
 }
 
+function Searchbar() {
+  const searchParams = useSearchParams()
+  const search = searchParams.get('q')
+
+  return (
+    <input class="input is-rounded" type="text" placeholder="Search" value={search} />
+  );
+}
+
 function Results() {
   const searchParams = useSearchParams()
-  const search = searchParams.get('search')
+  const search = searchParams.get('q')
 
   return (
     <div class="container is-max-desktop">
