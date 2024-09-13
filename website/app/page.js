@@ -10,12 +10,16 @@ export default function Home() {
           Search for keywords for works that may appear in audio ML training datasets. Examples include a work's title or the name of the creator, a performer, or the rights owner.
         </h2>
         <div class="container is-max-desktop">
-          <input class="input is-rounded" type="text" placeholder="Search" />
-          <button class="button">
-            <span class="icon is-link">
-              <i class="fas fa-search"></i>
-            </span>
-          </button>
+          <div class="field is-grouped">
+            <p class="control">
+              <input class="input is-rounded" type="text" placeholder="Search" />
+              <button class="button is-rounded">
+                <span class="icon is-link">
+                  <i class="fas fa-search"></i>
+                </span>
+              </button>
+            </p>
+          </div>
         </div>
       </section>
     </main>
