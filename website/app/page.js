@@ -19,7 +19,7 @@ function Search() {
   const { replace } = useRouter();
   const[searchValue, setValue] = useState("");
   const[searchError, setError] = useState("");
-  const errorText = ''
+  var errorText = ''
 
   const onKeyDown = (e) => {
     if(e.key == 'Enter'){
