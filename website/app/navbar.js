@@ -3,7 +3,7 @@ export default function Navbar() {
     <nav class="navbar" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
         <b class="navbar-item">
-          Audio Dataset Audit
+            Sound Check: Auditing Audio Datasets
         </b>
 
         <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -18,10 +18,6 @@ export default function Navbar() {
         <div class="navbar-start">
           <a class="navbar-item">
             Search
-          </a>
-
-          <a class="navbar-item">
-            About
           </a>
           <div class="navbar-end">
           </div>
