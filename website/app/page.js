@@ -17,6 +17,12 @@ function Search() {
   const search = searchParams.get('q')
   const pathname = usePathname();
   const { replace } = useRouter();
+
+  const onKeyDown = (e) => {
+    if(e.key == 'Enter'){
+        handleSearch(e.target.value);
+      }
+  }
  
   function handleSearch(term) {
     const params = new URLSearchParams(searchParams);
@@ -43,19 +49,20 @@ function Search() {
             <form onsubmit="return false">
               <input
                 class="input is-rounded"
+                label={'search'}
                 type="search"
                 placeholder="Search"
                 defaultValue={searchParams.get('q')?.toString()}
-                onsubmit={(e) => {
-                  handleSearch(e.target.value);
+                onKeyDown={(e) => {
+                  onKeyDown(e);
                 }}
               />
-              <p class="buttons">
-                <button type="submit" class="button is-rounded is-link">
-                  Search
-                </button>
-              </p>
             </form>
+            <p class="buttons">
+              <button class="button is-rounded is-link" onClick={handleSubmit}>
+                Search
+              </button>
+            </p>
           </div>
         </div>
       </section>
