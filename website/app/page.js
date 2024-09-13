@@ -1,5 +1,5 @@
 'use client'
-import { useSearchPa rams } from 'next/navigation'
+import { useSearchParams } from 'next/navigation'
 
 export default function Home() {
   return (
