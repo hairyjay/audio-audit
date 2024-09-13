@@ -22,7 +22,6 @@ function Search() {
   var errorText = ' '
   if (search.length < 5) {
     setError(e => true);
-    errorText = 'Search query must be at least 5 characters';
   }
 
   const onKeyDown = (e) => {
@@ -38,7 +37,6 @@ function Search() {
         params.set('q', term);
       } else {
         setError(e => true);
-        errorText = 'Search query must be at least 5 characters';
       }
     } else {
       params.delete('q');
@@ -76,7 +74,6 @@ function Search() {
                 Search
               </button>
             </p>
-            <p class="help is-danger">{errorText}</p>
           </div>
         </div>
       </section>
