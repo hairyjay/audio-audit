@@ -59,7 +59,7 @@ function Search() {
               />
             </form>
             <p class="buttons">
-              <button class="button is-rounded is-link" onClick={handleSubmit}>
+              <button class="button is-rounded is-link">
                 Search
               </button>
             </p>
