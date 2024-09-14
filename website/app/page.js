@@ -1,6 +1,7 @@
 'use client'
 import { useSearchParams, usePathname, useRouter } from 'next/navigation'
 import { useState, Suspense } from 'react'
+import Results from './results';
 
 export default function Home() {
   return (
@@ -77,6 +78,7 @@ function Search() {
       </section>
 
       <div class="container is-max-desktop">
+        <Results query={search}/>
       </div>
     </div>
   );
