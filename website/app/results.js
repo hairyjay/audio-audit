@@ -1,7 +1,7 @@
 import { getFMA } from './db'
 
-export default function Results({ query }) {
-  console.log(query, getFMA(query))
+export default function Results({ searchQuery }) {
+  console.log(searchQuery, getFMA(searchQuery))
   return(
 		<div class="container is-max-desktop">
 		</div>
