@@ -42,10 +42,8 @@ function Search() {
 function SearchBar({ searchQuery, handleSearch }) {
   const[searchValue, setValue] = useState("");
   const[searchError, setError] = useState(false);
-  if (searchValue) {
-    if (searchValue.length < 5 && searchValue.length >= 1) {
-      setError(true);
-    }
+  if (searchQuery.length < 5 && searchQuery.length >= 1) {
+    setError(true);
   }
 
   const onKeyDown = (e) => {
@@ -83,7 +81,7 @@ function SearchBar({ searchQuery, handleSearch }) {
             onKeyDown={(e) => {onKeyDown(e);}}
           />
           <p class="buttons">
-            <button class="button is-rounded is-link" onClick={handleSubmit(searchValue)}>
+            <button class="button is-rounded is-link" onClick={() => handleSubmit(searchValue)}>
               Search
             </button>
           </p>
