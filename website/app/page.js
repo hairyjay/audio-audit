@@ -79,7 +79,7 @@ function SearchBar({ searchQuery, handleSearch }) {
             label={'search'}
             type="search"
             placeholder="Search"
-            value={searchValue}
+            defaultValue={searchValue}
             onChange={(e) => {setValue(e.target.value); setError(false);}}
             onKeyDown={(e) => {onKeyDown(e);}}
           />
