@@ -4,16 +4,19 @@ import { useState, Suspense } from 'react'
 import Results from './results';
 
 export default function Home() {
+  const[searchValue, setValue] = useState("");
+
   return (
     <main>
         <Suspense>
-          <Search />
+          <Search setQuery= {setValue}/>
+          <Results query={searchValue}/>
         </Suspense>
     </main>
   );
 }
 
-function Search() {
+function Search({ setQuery }) {
   const searchParams = useSearchParams()
   const search = searchParams.get('q')
   const pathname = usePathname();
@@ -32,17 +35,18 @@ function Search() {
       }
   }
  
-  function handleSearch(term) {
+  function handleSearch(query) {
     const params = new URLSearchParams(searchParams);
-    if (term) {
-      if (term.length >= 5) {
-        params.set('q', term);
+    if (query) {
+      if (query.length >= 5) {
+        params.set('q', query);
       } else {
         setError(e => true);
       }
     } else {
       params.delete('q');
     }
+    setQuery(query)
     replace(`${pathname}?${params.toString()}`);
   }
 
@@ -76,10 +80,6 @@ function Search() {
           </div>
         </div>
       </section>
-
-      <div class="container is-max-desktop">
-        <Results query={search}/>
-      </div>
     </div>
   );
 }

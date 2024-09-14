@@ -1,5 +1,9 @@
 import { getFMA } from './db'
 
-export default function Results(props) {
-  console.log(props.query, getFMA(props.query))
+export default function Results({ query }) {
+  console.log(query, getFMA(query))
+  return(
+		<div class="container is-max-desktop">
+		</div>
+	)
 }
