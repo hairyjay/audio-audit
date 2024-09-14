@@ -23,11 +23,7 @@ function Search() {
   function handleSearch(query) {
     const params = new URLSearchParams(searchParams);
     if (query) {
-      if (query.length >= 5) {
-        params.set('q', query);
-      } else {
-        setError(true);
-      }
+      params.set('q', query);
     } else {
       params.delete('q');
     }
@@ -55,8 +51,16 @@ function SearchBar({ searchQuery, handleSearch }) {
 
   const onKeyDown = (e) => {
     if(e.key == 'Enter'){
-        handleSearch(e.target.value);
+        handleSubmit(e.target.value);
       }
+  }
+ 
+  function handleSubmit(query) {
+    if (query.length >= 5 || query.length < 1) {
+      handleSubmit(query)
+    } else {
+      setError(true);
+    }
   }
 
   return (
@@ -75,13 +79,12 @@ function SearchBar({ searchQuery, handleSearch }) {
             label={'search'}
             type="search"
             placeholder="Search"
-            defaultValue={searchValue}
             value={searchValue}
-            onChange={(e) => {setValue(e.target.value); setError(e => false);}}
+            onChange={(e) => {setValue(e.target.value); setError(false);}}
             onKeyDown={(e) => {onKeyDown(e);}}
           />
           <p class="buttons">
-            <button class="button is-rounded is-link" onClick={handleSearch(searchValue)}>
+            <button class="button is-rounded is-link" onClick={handleSubmit(searchValue)}>
               Search
             </button>
           </p>
