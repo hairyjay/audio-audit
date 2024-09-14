@@ -1,5 +1,5 @@
 import { getFMA } from './db'
 
 export default function Results(props) {
-  console.log(getFMA(props.query))
+  console.log(props.query, getFMA(props.query))
 }
