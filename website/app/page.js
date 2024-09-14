@@ -19,7 +19,7 @@ function Search() {
   const { replace } = useRouter();
   const[searchQuery, setQuery] = useState(searchParams.get('q'));
  
-  function handleSearch(query) {
+  const handleSearch = (query) => {
     const params = new URLSearchParams(searchParams);
     if (query) {
       params.set('q', query);
@@ -72,7 +72,7 @@ function SearchBar({ searchQuery, handleSearch }) {
             label={'search'}
             type="search"
             placeholder="Search"
-            value={searchQuery}
+            value={searchValue}
             onChange={(e) => {setValue(e.target.value); setError(false);}}
             onKeyDown={(e) => onKeyDown(e)}
           />
