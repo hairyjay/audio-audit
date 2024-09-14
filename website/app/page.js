@@ -17,8 +17,7 @@ function Search() {
   const searchParams = useSearchParams()
   const pathname = usePathname();
   const { replace } = useRouter();
-  const[searchQuery, setQuery] = useState("");
-  setQuery(searchParams.get('q'))
+  const[searchQuery, setQuery] = useState(searchParams.get('q'));
  
   function handleSearch(query) {
     const params = new URLSearchParams(searchParams);
@@ -28,7 +27,7 @@ function Search() {
       params.delete('q');
     }
     replace(`${pathname}?${params.toString()}`);
-    setQuery(query)
+    setQuery(query);
   }
 
   return (
