@@ -21,10 +21,9 @@ export default function Home() {
 function Search({ searchValue, setValue }) {
   const pathname = usePathname();
   const { replace } = useRouter();
-  const[searchValue, setValue] = useState("");
   const[searchError, setError] = useState(false);
   if (searchValue) {
-    if (search.length < 5 && search.length >= 1) {
+    if (searchValue.length < 5 && searchValue.length >= 1) {
       setError(e => true);
     }
   }
