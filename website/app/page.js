@@ -5,25 +5,25 @@ import Results from './results';
 
 export default function Home() {
   const[searchValue, setValue] = useState("");
+  const searchParams = useSearchParams()
+  setValue(searchParams.get('q'))
 
   return (
     <main>
         <Suspense>
-          <Search setQuery= {setValue}/>
+          <Search searchValue={searchValue} setValue={setValue}/>
           <Results query={searchValue}/>
         </Suspense>
     </main>
   );
 }
 
-function Search({ setQuery }) {
-  const searchParams = useSearchParams()
-  const search = searchParams.get('q')
+function Search({ searchValue, setValue }) {
   const pathname = usePathname();
   const { replace } = useRouter();
   const[searchValue, setValue] = useState("");
   const[searchError, setError] = useState(false);
-  if (search) {
+  if (searchValue) {
     if (search.length < 5 && search.length >= 1) {
       setError(e => true);
     }
@@ -46,7 +46,7 @@ function Search({ setQuery }) {
     } else {
       params.delete('q');
     }
-    setQuery(query)
+    setValue(query)
     replace(`${pathname}?${params.toString()}`);
   }
 
@@ -67,7 +67,7 @@ function Search({ setQuery }) {
               label={'search'}
               type="search"
               placeholder="Search"
-              defaultValue={searchParams.get('q')?.toString()}
+              defaultValue={searchValue}
               value={searchValue}
               onChange={(e) => {setValue(e.target.value); setError(e => false);}}
               onKeyDown={(e) => {onKeyDown(e);}}
