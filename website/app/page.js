@@ -42,7 +42,6 @@ function Search() {
 function SearchBar({ searchQuery, handleSearch }) {
   const[searchValue, setValue] = useState("");
   const[searchError, setError] = useState(false);
-  setValue(searchQuery)
   if (searchValue) {
     if (searchValue.length < 5 && searchValue.length >= 1) {
       setError(true);
@@ -79,7 +78,7 @@ function SearchBar({ searchQuery, handleSearch }) {
             label={'search'}
             type="search"
             placeholder="Search"
-            defaultValue={searchValue}
+            defaultValue={searchQuery}
             onChange={(e) => {setValue(e.target.value); setError(false);}}
             onKeyDown={(e) => {onKeyDown(e);}}
           />
