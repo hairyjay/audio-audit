@@ -40,11 +40,8 @@ function Search() {
 }
 
 function SearchBar({ searchQuery, handleSearch }) {
-  const[searchValue, setValue] = useState("");
-  const[searchError, setError] = useState(false);
-  if (searchQuery.length < 5 && searchQuery.length >= 1) {
-    setError(true);
-  }
+  const[searchValue, setValue] = useState(searchQuery);
+  const[searchError, setError] = useState(searchQuery.length < 5 && searchQuery.length >= 1);
 
   const onKeyDown = (e) => {
     if(e.key == 'Enter'){
@@ -54,7 +51,7 @@ function SearchBar({ searchQuery, handleSearch }) {
  
   function handleSubmit(query) {
     if (query.length >= 5 || query.length < 1) {
-      handleSubmit(query)
+      handleSearch(query)
     } else {
       setError(true);
     }
@@ -76,9 +73,9 @@ function SearchBar({ searchQuery, handleSearch }) {
             label={'search'}
             type="search"
             placeholder="Search"
-            defaultValue={searchQuery}
+            value={searchQuery}
             onChange={(e) => {setValue(e.target.value); setError(false);}}
-            onKeyDown={(e) => {onKeyDown(e);}}
+            onKeyDown={(e) => onKeyDown(e)}
           />
           <p class="buttons">
             <button class="button is-rounded is-link" onClick={() => handleSubmit(searchValue)}>
