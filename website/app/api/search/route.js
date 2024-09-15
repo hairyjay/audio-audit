@@ -4,12 +4,27 @@ async function requestHandler(req) {
 	const { searchParams } = new URL(req.url);
 	const query = searchParams.get("q").toLowerCase()
 	var results = {}
+	var audResults = await getAudioset(query)
+	results["aud"] = audResults ? audResults.rows : []
 	var jamResults = await getJamendo(query)
 	results["jam"] = jamResults ? jamResults.rows : []
 	var fmaResults = await getFMA(query)
 	results["fma"] = fmaResults ? fmaResults.rows : []
 	return Response.json(results);
 }
+
+async function getAudioset(searchString) {
+	searchString = searchString ? searchString : ""
+	if (searchString.length >= 5) {
+		const searchItem = "%" + searchString + "%"
+		const selectResult = await sql`SELECT * FROM audioset
+																	 WHERE LOWER( name ) LIKE ${searchItem}
+																	 		OR LOWER( title ) LIKE ${searchItem};`;
+		return selectResult;
+	} else {
+		return null
+	}
+};
 
 async function getJamendo(searchString) {
 	searchString = searchString ? searchString : ""
