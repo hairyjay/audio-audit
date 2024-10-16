@@ -9,11 +9,12 @@ key_list = list(data.keys())
 # for i in range(15):
 #     print(data[key_list[i]])
 
-reconfigured_data = {"name": [], "title": []}
-for k in key_list:
+reconfigured_data = {"name": [], "title": [], "url": []}
+for k in key_list: 
     reconfigured_data["name"].append(data[k][0])
     reconfigured_data["title"].append(data[k][1])
-print(len(reconfigured_data["name"]),len(reconfigured_data["title"]))
+    reconfigured_data["url"].append(data[k][2])
+print(len(reconfigured_data["name"]),len(reconfigured_data["title"]),len(reconfigured_data["url"]))
 
 import pandas as pd
 df = pd.DataFrame.from_dict(reconfigured_data)
@@ -27,7 +28,8 @@ cur.execute("""
             CREATE TABLE audioset(
             id SERIAL PRIMARY KEY,
             name text,
-            title text);
+            title text,
+            url text);
             """)
 conn.commit()
 conn.autocommit = True
