@@ -92,6 +92,7 @@ function AudiosetResults({ data }) {
 							</div>
 							<div class="column is-4 has-text-right">
 								<div class="buttons is-pulled-right">
+								<a href={item.url}><button className="button is-link">Youtube Link</button></a>
 									<a href='https://research.google.com/audioset/'><button className="button is-danger">Dataset Link</button></a>
 								</div>
 							</div>
